@@ -5,7 +5,7 @@ const App = () => {
     const [ temp, updateTemp ] = useState({ f: 0, c: 0 });
 
     return(
-        <div>
+        <div className="wrapper">
             <div className="ui segment">
                 <div className="header">
                     <h1>Temperature Converter</h1>
