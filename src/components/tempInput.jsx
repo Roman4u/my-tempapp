@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./tempapp.css"
+
 const TempInput = (props) => {
     const { updateTemp } = props; 
 
@@ -24,7 +26,24 @@ const TempInput = (props) => {
     }
 
     return(
-        <div></div>
+        <div className="container ui segment">
+            <div className="row">
+                <form className="ui form column">
+                    <div className="field">
+                        {/* <label>Temperature Converter</label> */}
+                        <input type="text" />
+                    </div>
+                </form>
+            
+
+                <form className="ui form column">
+                    <div className="field">
+                        {/* <label>Temperature Converter</label> */}
+                        <input type="text" />
+                    </div>
+                </form>
+            </div>
+        </div>
     )
 }
 
