@@ -1,53 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import DropDown from "./DropDown";
 import "./tempapp.css"
 
 const TempInput = (props) => {
-    const { tempObject, updateTempObject, temps, setInputString, inputString, dropDownValue, setDropDownValue } = props; 
+    const { updateTempObject, temps, dropDownValue, setDropDownValue, handleDropDownSubmit, inputString, setInputString, handleUserInput } = props; 
 
-    const updateCelcius = (inputValue) => {
-        //const inputValue = event.target.value; 
-        updateTempObject(
-            { 
-                c: inputValue,
-                f: (inputValue * 9) / 5 + 32
-            }
-        );
+ 
+    // this function takes the value from the user, sets the state from this component and then 
+    // passes it to the function in our App component
+    const onUserInputSubmit = () => { 
+        handleUserInput(inputString);
     };
 
-    const updateFarenheight = (inputValue) => {
-        // const inputValue = event.target.value;
-        updateTempObject(
-            {
-                c: (inputValue - 32) * 5 / 9,
-                f: inputValue
-            }
-        )
+   // this function takes user input and set the value of state
+   const onUserInput = (event) => {
+    //converts user input to an integer
+    const input = Number(event.target.value);
+    // sets state value
+    setInputString(input);
+    console.log("input string:", inputString);
     };
 
-    const handleInputChange = (event) => {
-        const input = Number(event.target.value);
-        setInputString(input);
-        console.log("input string:", inputString);
-        if(dropDownValue === temps.c){
-            updateCelcius(input);
-            console.log(tempObject);
-        }else{
-            updateFarenheight(input);
-            console.log(tempObject);
-        } 
-    }
-
-   
+    useEffect(() => {
+        onUserInputSubmit();
+    }, [inputString]);
 
     return(
         <>
             <div className="container ui segment">
                 <div className="row">
-                    <form className="ui form column">
+                    <form className="ui form column" onSubmit={onUserInputSubmit} >
                         <div className="field">
-                            <input type="text" onChange={handleInputChange}  />
+                            <input type="text" onChange={onUserInput}  />
                         </div>
                     </form>
                     
@@ -63,8 +48,21 @@ const TempInput = (props) => {
 
             <div className="container ui segment">
                 <div className="row">
-                        <DropDown temps={temps} setInputString={setInputString} />
-                        <DropDown temps={temps} setInputString={setInputString} />    
+                        <DropDown 
+                        temps={temps} 
+                        dropDownValue={dropDownValue}
+                        setDropDownValue={setDropDownValue} 
+                        handleDropDownSubmit={handleDropDownSubmit}
+
+                        />
+
+                        <DropDown 
+                        temps={temps} 
+                        dropDownValue={dropDownValue}
+                        setDropDownValue={setDropDownValue}
+                        setInputString={setInputString} 
+                        handleDropDownSubmit={handleDropDownSubmit} 
+                        />    
                 </div>
             </div>
         </>
