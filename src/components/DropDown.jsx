@@ -1,32 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const DropDown = (props) => {
-    const { temps, onDropDownSubmit } = props; 
+    const { temps, handleDropDownSubmit,dropDownValue, setDropDownValue } = props; 
     
 
-    // const onDropDownSubmit = () => {
-    //     console.log("hello");
-    // }
+    //takes the value from state and passes it to the handleDropDownSubmit function
+    const onDropDownSubmit = () => {
+        handleDropDownSubmit(dropDownValue);
+    };
 
-    // const onDropDownChange = () => {
-    //     console.log("hello");     
-    // }
 
+    // saves value to state
     const onDropDownChange = (event) => {
-        const dropDownValue = event.target.value;
-        console.log("hello");  
-        console.log(typeof dropDownValue);  
-
+        const value = event.target.value;
+        console.log("drop down change hello");  
+        console.log(typeof value); 
+        console.log("value:", value)
+        setDropDownValue(value); 
+        //console.log("drop down value:", dropDownValue)
     }
 
+
+    // whenever dropdown changes useEffect gets invoked and runs the onDropDownSubmit function
+    useEffect(() => {
+        onDropDownSubmit();
+    }, [dropDownValue]);
+
+
+
     return (
-            <form className="ui form column" onSubmit={onDropDownSubmit}>
+            <form className="ui form column" >
                 <select id="temperatures" onChange={onDropDownChange}>
                     <option style={{textAlign: "center"}}> ---- select ---- </option>
                     <option value={temps.c}  >{temps.c}</option>
                     <option value={temps.f}  >{temps.f}</option>
+                    {/* <option>{dropDownValue}</option> */}
                 </select>
             </form>
+
     )
 }
 
