@@ -1,12 +1,20 @@
 .wrapper {
-    margin: 15px;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: bisque;
 }
 
 .header {
     text-align: center;
 }
 
-.row {
+.temp {
+    margin: 10px;
+}
+
+/* .row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -18,4 +26,4 @@
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
-}
+} */
