@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import App from "./App";
+import DropDown from "./DropDown";
 
 import "./tempapp.css";
 import { celcius, fahrenheit } from "./App";
@@ -14,7 +14,6 @@ const TempInput = (props) => {
     // setDropDownTemp,
     // calculateTemp,
     calculatedTemperature,
-    // setUserInput,
     updateParentState,
   } = props;
 
@@ -46,10 +45,14 @@ const TempInput = (props) => {
   return (
     <div>
       <form id="tempCalc" onSubmit={handleUserSubmit}>
-          <label>Degrees</label><br />
+        <label>Degrees</label><br />
         <input type="number" className="temp" onChange={numericalChange} /><br />
 
-        <label>Units</label><br />
+        <DropDown 
+        units={units}
+        handleDropDownChange={handleDropDownChange}
+        />
+        {/* <label>Units</label><br />
         <select
           id="temps ui segment"
           value={units}
@@ -59,7 +62,7 @@ const TempInput = (props) => {
           <option value={celcius}>{celcius}</option>
           <option value={fahrenheit}>{fahrenheit}</option>
         </select>
-        <br />
+        <br /> */}
 
         <button
           type="submit"
