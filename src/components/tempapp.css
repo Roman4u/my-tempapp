@@ -3,7 +3,7 @@
     height: 100vh;
     display: grid;
     place-items: center;
-    /* background-color: bisque; */
+    background-color: bisque;
 }
 
 .header {
@@ -41,3 +41,25 @@
     bottom: 10px;
     right: 10px;
 }
+
+.button {
+    display: inline-block;
+    margin: 10px;
+    padding: 8px 15px; 
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    transition-duration: 0.4s;
+    text-align: center;
+    background-color: rgb(43, 99, 239);
+    color: white;
+    cursor: pointer
+}
+
+.button:hover {
+    background-color: rgb(15, 146, 63);
+}
+
+.button:active {
+    transform: translateY(4px);
+  }

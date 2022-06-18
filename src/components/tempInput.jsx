@@ -62,8 +62,7 @@ const TempInput = (props) => {
 
         <button
           type="submit"
-          className="temp ui segment"
-          style={{ backgroundColor: "blue", color: "white" }}
+          className="button"
           onClick={() => {
             console.log("thomas");
             // calculateTemp(dropDowntemp, userInput);
