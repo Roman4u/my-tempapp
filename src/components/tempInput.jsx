@@ -47,8 +47,9 @@ const TempInput = (props) => {
   return (
     <div>
       <form id="tempCalc" onSubmit={handleUserSubmit}>
-        <input type="number" className="temp" onChange={numericalChange} />
+        <input type="number" className="temp" onChange={numericalChange} /><br />
 
+        <label>Units</label><br />
         <select
           id="temps ui segment"
           value={units}
