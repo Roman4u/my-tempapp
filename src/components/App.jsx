@@ -13,7 +13,7 @@ const App = () => {
   const [numericalInput, setNumericalInput] = useState(0);
 
   //   const [userInput, setUserInput] = useState(0);
-  //   const [span, setSpan] = useState("");
+  
 
   function toFahrenheit(celcius) {
     const result = Math.floor((celcius * 9) / 5 + 32);

@@ -23,9 +23,11 @@ const TempInput = (props) => {
     celcius: "Celcius",
   };
 
+  //this should take the drop down value clicked on and store it in state
   const handleDropDownChange = (e) => {
-    // console.log(e.target.value);
-    setUnits(e.target.value);
+    console.log("drop down:", e);
+    console.log("units:", units)
+    //setUnits(e.target.value);
   };
 
   const handleUserSubmit = (event) => {
@@ -34,29 +36,18 @@ const TempInput = (props) => {
     updateParentState(units, numericalInput);
   };
 
-  // const calculateTemp = () => {
-  //     let result;
-  //     if(dropDowntemp === 'Celcius'){
-  //         result = toCelcius(userInput);
-  //         setSpan(`= ${result} Fahrenheit`)
-  //         setConvertedTemp(result);
-  //     }else{
-  //         result = toFahrenheit(userInput);
-  //         setSpan(`= ${result} Celcius`)
-  //         setConvertedTemp(result);
-  //     }
-  //     return result;
-  // };
+ 
+  //takes the value and sets state
   const numericalChange = (event) => {
     event.preventDefault();
-    //console.log(`numerical change event: ${parseInt(event.target.value)}`);
+    console.log(`numerical change event: ${parseInt(event.target.value)}`);
     setNumericalInput(parseInt(event.target.value));
   };
 
   return (
     <div>
       <form id="tempCalc" onSubmit={handleUserSubmit}>
-        <input className="temp" onChange={numericalChange} />
+        <input type="number" className="temp" onChange={numericalChange} />
 
         <select
           id="temps ui segment"
@@ -67,6 +58,7 @@ const TempInput = (props) => {
           <option value={fahrenheit}>{fahrenheit}</option>
         </select>
         <br />
+
         <button
           type="submit"
           className="temp ui segment"
