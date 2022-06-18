@@ -1,50 +1,90 @@
 import React, { useState, useEffect } from "react";
+import App from "./App";
 
-import "./tempapp.css"
+import "./tempapp.css";
+import { celcius, fahrenheit } from "./App";
 
 const TempInput = (props) => {
-   
-    const {temp, setTemp} = props; 
-    const [userInput, setUserInput] = useState(0);
+  const [numericalInput, setNumericalInput] = useState();
+  const [units, setUnits] = useState(fahrenheit);
 
-    const temperatures = {
-        fahrenheit: "Fahrenheit",
-        celcius: "Celcius"
-    };
+  const {
+    // userInput,
+    // dropDowntemp,
+    // setDropDownTemp,
+    // calculateTemp,
+    calculatedTemperature,
+    // setUserInput,
+    updateParentState,
+  } = props;
 
-    const handleDropDownChange = (e) => {
-        console.log(e.target.value);
-        setTemp(e.target.value);
-    };
+  const temperatures = {
+    fahrenheit: "Fahrenheit",
+    celcius: "Celcius",
+  };
 
-    // const handleUserInputChange = (event) => {
-    //     // console.log(event.target.value);
-    //     console.log("hellooooooooooo")
-    // }
+  const handleDropDownChange = (e) => {
+    // console.log(e.target.value);
+    setUnits(e.target.value);
+  };
 
-    const handleUserSubmit = (event) => {
-        event.preventDefault();
-        const value = event.target[0].value;
-        setUserInput(value);
-    }
+  const handleUserSubmit = (event) => {
+    event.preventDefault();
+    console.log(`numerical input${numericalInput}`)
+    updateParentState(units, numericalInput);
+  };
 
-    return(
-        <div>
-             <form id="tempCalc" onSubmit={handleUserSubmit} >
-                
-                <input type="number" className="temp" />
+  // const calculateTemp = () => {
+  //     let result;
+  //     if(dropDowntemp === 'Celcius'){
+  //         result = toCelcius(userInput);
+  //         setSpan(`= ${result} Fahrenheit`)
+  //         setConvertedTemp(result);
+  //     }else{
+  //         result = toFahrenheit(userInput);
+  //         setSpan(`= ${result} Celcius`)
+  //         setConvertedTemp(result);
+  //     }
+  //     return result;
+  // };
+  const numericalChange = (event) => {
+    event.preventDefault();
+    //console.log(`numerical change event: ${parseInt(event.target.value)}`);
+    setNumericalInput(parseInt(event.target.value));
+  };
 
-                <select id="temps ui segment" value={temp} onChange={handleDropDownChange} >
-                    <option value="Celcius">{temperatures.celcius}</option>
-                    <option value="Fahrenheit">{temperatures.fahrenheit}</option>
-                </select> <br />
+  return (
+    <div>
+      <form id="tempCalc" onSubmit={handleUserSubmit}>
+        <input className="temp" onChange={numericalChange} />
 
-                <input type="submit" className="temp ui segment" style={{backgroundColor: "blue", color: "white"}} /> <br />
-                <span id="result-container"></span>
-            </form>
-
-        </div>
-    )
-}
+        <select
+          id="temps ui segment"
+          value={units}
+          onChange={handleDropDownChange}
+        >
+          <option value={celcius}>{celcius}</option>
+          <option value={fahrenheit}>{fahrenheit}</option>
+        </select>
+        <br />
+        <button
+          type="submit"
+          className="temp ui segment"
+          style={{ backgroundColor: "blue", color: "white" }}
+          onClick={() => {
+            console.log("thomas");
+            // calculateTemp(dropDowntemp, userInput);
+          }}
+        >
+          Convert
+        </button>
+        <br />
+        <span id="result-container ui container">
+          <h3>{calculatedTemperature}</h3>
+        </span>
+      </form>
+    </div>
+  );
+};
 
 export default TempInput;
