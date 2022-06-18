@@ -6,7 +6,7 @@ import { celcius, fahrenheit } from "./App";
 
 const TempInput = (props) => {
   const [numericalInput, setNumericalInput] = useState();
-  const [units, setUnits] = useState(fahrenheit);
+  const [units, setUnits] = useState('');
 
   const {
     // userInput,
@@ -25,8 +25,7 @@ const TempInput = (props) => {
 
   //this should take the drop down value clicked on and store it in state
   const handleDropDownChange = (e) => {
-    console.log("drop down:", e);
-    console.log("units:", units)
+    console.log("drop down:", e.target);
     //setUnits(e.target.value);
   };
 
@@ -47,6 +46,7 @@ const TempInput = (props) => {
   return (
     <div>
       <form id="tempCalc" onSubmit={handleUserSubmit}>
+          <label>Degrees</label><br />
         <input type="number" className="temp" onChange={numericalChange} /><br />
 
         <label>Units</label><br />
@@ -55,6 +55,7 @@ const TempInput = (props) => {
           value={units}
           onChange={handleDropDownChange}
         >
+          <option>-- select a unit --</option>
           <option value={celcius}>{celcius}</option>
           <option value={fahrenheit}>{fahrenheit}</option>
         </select>
