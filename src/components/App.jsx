@@ -12,7 +12,6 @@ const App = () => {
   const [calculatedTemperature, setCalculatedTemperature] = useState(0);
   const [numericalInput, setNumericalInput] = useState(0);
 
-  //   const [userInput, setUserInput] = useState(0);
   
 
   function toFahrenheit(celcius) {
@@ -31,24 +30,22 @@ const App = () => {
     let result;
     if (dropDowntemp === "Celcius") {
       result = toFahrenheit(numericalInput);
-      //   setSpan(`= ${result} Fahrenheit`);
-    //   setConvertedTemp(result);
+     setConvertedTemp(`= ${result} Fahrenheit`);
     } else {
       result = toCelcius(numericalInput);
-      //   setSpan(`= ${result} Celcius`);
-    //   setConvertedTemp(result);
+      setConvertedTemp(`= ${result} Celcius`);
     }
     return result;
   };
 
   //this function updates state for the entire app
-  const updateParentState = (dropDowntemp, numericalInput) => {
-    // TODO: Update the state of this component.
-    setDropDownTemp(dropDowntemp);
-    setNumericalInput(numericalInput);
-    // TODO: Calculate the temperature.
-    setCalculatedTemperature(calculateTemp(dropDowntemp, numericalInput));
-  };
+  // const updateParentState = (dropDowntemp, numericalInput) => {
+  //   // TODO: Update the state of this component.
+  //   setDropDownTemp(dropDowntemp);
+  //   setNumericalInput(numericalInput);
+  //   // TODO: Calculate the temperature.
+  //   setCalculatedTemperature(calculateTemp(dropDowntemp, numericalInput));
+  // };
 
   return (
     <div className="wrapper">
@@ -63,18 +60,14 @@ const App = () => {
         <div className="header">
           <h1>Temperature Converter</h1>
           <TempInput
-            // span={span}
-            // setSpan={setSpan}
-            // userInput={userInput}
-            // setUserInput={setUserInput}
-            // dropDowntemp={dropDowntemp}
-            // setDropDownTemp={setDropDownTemp}
-            // convertedTemp={convertedTemp}
-            // setConvertedTemp={setConvertedTemp}
-            // currentTemp={currentTemp}
-            // setCurrentWeather={setCurrentWeather}
-            updateParentState={updateParentState}
-            calculatedTemperature={calculatedTemperature}
+           numericalInput={numericalInput}
+           setNumericalInput={setNumericalInput}
+            dropDowntemp={dropDowntemp}
+            setDropDownTemp={setDropDownTemp}
+            convertedTemp={convertedTemp}
+         
+            // updateParentState={updateParentState}
+            calculateTemp={calculateTemp}
           />
         </div>
       </div>

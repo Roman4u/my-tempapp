@@ -5,21 +5,36 @@ import { celcius, fahrenheit } from "./App";
 
 const DropDown = (props) => {
     const {units, handleDropDownChange} = props;
-    
+   
+    const tempUnits = [
+    {
+        label:"title",
+        value: "-- select a unit --"
+    },
+    {
+        label: "Celcius",
+        value: "celcius"
+    },
+    {
+        label: "Fahrenheit",
+        value: "fahrenheit"
+    }
+]
+
     return(
-        <>
+        <div className="select-container">
             <label>Units</label><br />
             <select
             id="temps ui segment"
-            value={units}
             onChange={handleDropDownChange}
             >
-            <option>-- select a unit --</option>
-            <option value={celcius}>{celcius}</option>
-            <option value={fahrenheit}>{fahrenheit}</option>
+               {tempUnits.map((unit, index) => {
+                   return <option key={index} value={unit.label}>{unit.value}</option>
+               })}
             </select>
             <br />
-        </>
+           
+        </div>
     )
 }
 
