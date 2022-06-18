@@ -8,8 +8,8 @@ const TempInput = (props) => {
   const [units, setUnits] = useState('');
 
   const {
-    dropDowntemp,
-    setDropDownTemp,
+    dropDownTemp,
+    setdropDownTemp,
     calculateTemp,
     updateParentState,
     convertedTemp,
@@ -17,34 +17,23 @@ const TempInput = (props) => {
     setNumericalInput,
   } = props;
 
-//   const temperatures = {
-//     fahrenheit: "Fahrenheit",
-//     celcius: "Celcius",
-//   };
 
   //this should take the drop down value clicked on and store it in state
   const handleDropDownChange = (e) => {
       e.preventDefault();
-      console.log("do you come here???", e)
-      console.log("drop down event", e.target.value);
-      setDropDownTemp(e.target.value);
+      setdropDownTemp(e.target.value);
   };
 
   const handleNumericalSubmit = (x, y) => {
-    //event.preventDefault();
-    console.log(`numerical input ${numericalInput}`)
-    console.log("drop down value:", dropDowntemp)
     //here we need to invoke a function that will use the values
     // that have been updated, so we'll invoke the calcTemp function here
-    calculateTemp(numericalInput, dropDowntemp);
+    calculateTemp(numericalInput, dropDownTemp);
   };
 
  
   //takes the value and sets state
   const numericalChange = (event) => {
     event.preventDefault();
-    //console.log("numerical event", event)
-    console.log(`numerical change: ${parseInt(event.target.value)}`);
     setNumericalInput(parseInt(event.target.value));
   };
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./tempapp.css"
 
 const TempDisplay = (props) => {
-    const { setConvertedTemp, setDropDownTemp, currentTemp, setCurrentTemp, currentWeather } = props; 
+    const { dropDownTemp, numericalInput, setCurrentWeather, currentWeather } = props; 
 
     const tempConfigDisplay = {
         cold: {
@@ -17,24 +17,24 @@ const TempDisplay = (props) => {
 
     const {text, iconName} = tempConfigDisplay["cold"];
 
-    const getTempDisplay = (dropDownTemp, convertedTemp) => {
-        if(dropDownTemp === "Celcius" && convertedTemp <= 18 || dropDownTemp === 
-        "Fahrenheit" && convertedTemp <= 60){
-            setCurrentTemp("cold");
-        }else if(dropDownTemp === "Celcius" && convertedTemp > 18 || dropDownTemp === 
-        "Fahrenheit" && convertedTemp > 60){
-            setCurrentTemp("warm");
+    const getTempDisplay = (dropDownTemp, numericalInput) => {
+        if(dropDownTemp === "Celcius" && numericalInput <= 18 || dropDownTemp === 
+        "Fahrenheit" && numericalInput <= 60){
+            setCurrentWeather("cold");
+        }else if(dropDownTemp === "Celcius" && numericalInput > 18 || dropDownTemp === 
+        "Fahrenheit" && numericalInput > 60){
+            setCurrentWeather("warm");
         };
     };
 
     useEffect(() => {
-       const result = getTempDisplay(props.dropDownTemp, props.convertedTemp);
+       const result = getTempDisplay(dropDownTemp, numericalInput);
        return result;
-    }, [props.dropDownTemp]);
+    }, [dropDownTemp]);
 
 
     return (
-        <div className={`temp-display ${currentTemp}`} >
+        <div className={`temp-display ${currentWeather}`} >
 
             <i className={`icon-left massive ${iconName} icon`} />
             <h1>{ text }</h1>

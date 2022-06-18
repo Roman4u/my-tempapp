@@ -6,7 +6,7 @@ export const fahrenheit = "Fahrenheit";
 export const celcius = "Celcius";
 
 const App = () => {
-  const [dropDowntemp, setDropDownTemp] = useState("Celcius");
+  const [dropDownTemp, setdropDownTemp] = useState("Celcius");
   const [convertedTemp, setConvertedTemp] = useState(null);
   const [currentWeather, setCurrentWeather] = useState("cold");
   const [calculatedTemperature, setCalculatedTemperature] = useState(0);
@@ -21,14 +21,14 @@ const App = () => {
   }
 
   function toCelcius(fahrenheit) {
-    const result = Math.floor((fahrenheit - 32 * 5) / 9);
+    const result = Math.floor((fahrenheit - 32) * 5/ 9);
     console.log(`to celcius ${result}`)
     return result;
   }
 
-  const calculateTemp = (numericalInput, dropDowntemp) => {
+  const calculateTemp = (numericalInput, dropDownTemp) => {
     let result;
-    if (dropDowntemp === "Celcius") {
+    if (dropDownTemp === "Celcius") {
       result = toFahrenheit(numericalInput);
      setConvertedTemp(`= ${result} Fahrenheit`);
     } else {
@@ -39,22 +39,22 @@ const App = () => {
   };
 
   //this function updates state for the entire app
-  // const updateParentState = (dropDowntemp, numericalInput) => {
+  // const updateParentState = (dropDownTemp, numericalInput) => {
   //   // TODO: Update the state of this component.
-  //   setDropDownTemp(dropDowntemp);
+  //   setdropDownTemp(dropDownTemp);
   //   setNumericalInput(numericalInput);
   //   // TODO: Calculate the temperature.
-  //   setCalculatedTemperature(calculateTemp(dropDowntemp, numericalInput));
+  //   setCalculatedTemperature(calculateTemp(dropDownTemp, numericalInput));
   // };
 
   return (
     <div className="wrapper">
       <TempDisplay
-        convertedTemp={convertedTemp}
-        // setConvertedTemp={setConvertedTemp}
-        dropDowntemp={dropDowntemp}
-        // setDropDownTemp={setDropDownTemp}
-        calculateTemp={calculateTemp}
+        numericalInput={numericalInput}
+        setCurrentWeather={setCurrentWeather}
+        dropDownTemp={dropDownTemp}
+        currentWeather={currentWeather}
+       
       />
       <div className="ui segment">
         <div className="header">
@@ -62,8 +62,8 @@ const App = () => {
           <TempInput
            numericalInput={numericalInput}
            setNumericalInput={setNumericalInput}
-            dropDowntemp={dropDowntemp}
-            setDropDownTemp={setDropDownTemp}
+            dropDownTemp={dropDownTemp}
+            setdropDownTemp={setdropDownTemp}
             convertedTemp={convertedTemp}
          
             // updateParentState={updateParentState}
