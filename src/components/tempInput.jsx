@@ -20,15 +20,15 @@ const TempInput = (props) => {
 
   const errorMessage = "No input! Please input a degree and select a unit."
 
-  //this should take the drop down value clicked on and store it in state
+  //this function will take the drop down value clicked on and store it in state
   const handleDropDownChange = (e) => {
     e.preventDefault();
     setdropDownTemp(e.target.value);
   };
 
+  //this function will handle errors by checking if both values in state have been updated
+  //then, it will pass them to the calculateTemp function
   const handleNumericalSubmit = (x, y) => {
-    //here we need to invoke a function that will use the values
-    // that have been updated, so we'll invoke the calcTemp function here
     if(numericalInput === null || dropDownTemp === null) {
       setError(true);
     }else{
