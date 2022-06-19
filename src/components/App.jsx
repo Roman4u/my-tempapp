@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, createContext } from "react";
+import ReactSwitch from "react-switch";
+
 import TempInput from "./TempInput";
+import RefreshButton from "./RefreshButton";
+import ToggleSwitch from "./ToggleSwitch";
 
-
+export const ThemeContext = createContext(null);
 export const fahrenheit = "Fahrenheit";
 export const celcius = "Celcius";
 
@@ -9,9 +13,8 @@ const App = () => {
   const [dropDownTemp, setdropDownTemp] = useState(null);
   const [convertedTemp, setConvertedTemp] = useState(null);
   const [currentWeather, setCurrentWeather] = useState("cold");
-  // const [calculatedTemperature, setCalculatedTemperature] = useState(0);
   const [numericalInput, setNumericalInput] = useState(null);
-
+  const [ theme, setTheme ] = useState("light");
   
 
   function toFahrenheit(celcius) {
@@ -24,6 +27,8 @@ const App = () => {
     return result;
   }
 
+  //this function will calculate the temp based on the values 
+  //coming from TempInput component
   const calculateTemp = (numericalInput, dropDownTemp) => {
     let result;
     if (dropDownTemp === "Celcius") {
@@ -36,29 +41,36 @@ const App = () => {
     return result;
   };
 
-  
+  const toggleTheme = () => {
+    setTheme((currentTheme) => {
+      const result = currentTheme === "light" ? "dark" : "light";
+      return result; 
+    });
+  };
 
   return (
-    <div className="wrapper">
-      <div className="container">
-        <div className="header">
-        <h1>Temperature Converter</h1>
-          <TempInput
-            numericalInput={numericalInput}
-            setNumericalInput={setNumericalInput}
-            dropDownTemp={dropDownTemp}
-            setdropDownTemp={setdropDownTemp}
-            convertedTemp={convertedTemp}
-         
-            // updateParentState={updateParentState}
-            calculateTemp={calculateTemp}
-          />
-          <div style={{display: 'flex'}}>
-           <button className="refresh-button" onClick={() => {return window.location.reload(false)}} style={{marginLeft: 'auto'}}>refresh</button>
-           </div>
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
+      <div className="wrapper" id={theme}>
+        <div className="container">
+          <div className="header">
+          <h1>Temperature Converter</h1>
+            <TempInput
+              numericalInput={numericalInput}
+              setNumericalInput={setNumericalInput}
+              dropDownTemp={dropDownTemp}
+              setdropDownTemp={setdropDownTemp}
+              convertedTemp={convertedTemp}
+              calculateTemp={calculateTemp}
+            />
+            <RefreshButton />
+          </div>
         </div>
+        <ToggleSwitch
+        toggleTheme={toggleTheme}
+        theme={theme}
+        />
       </div>
-    </div>
+    </ThemeContext.Provider>
   );
 };
 

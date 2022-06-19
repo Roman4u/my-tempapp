@@ -80,3 +80,36 @@ select {
 .refresh-button:active {
     transform: translateY(4px);
   }
+
+  #light {
+      background-color:  rgb(243, 210, 210);
+  }
+
+  #light .header {
+      background-color:  rgb(246, 235, 235);;
+  }
+
+
+  #dark {
+      background-color:  rgb(236, 111, 111);;
+  }
+
+  #dark .header {
+      background-color:  rgb(248, 182, 182);;
+  }
+
+  #dark .switch-label {
+      color: white;
+  }
+
+  .switch {
+      display: flex;
+      width: 100vw;
+      height: 100px;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .switch-label {
+      margin: 5px;
+  }
