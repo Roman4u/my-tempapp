@@ -5,7 +5,7 @@ import "./tempapp.css";
 import { celcius, fahrenheit } from "./App";
 
 const TempInput = (props) => {
-  const [units, setUnits] = useState('');
+  const [units, setUnits] = useState("");
 
   const {
     dropDownTemp,
@@ -16,23 +16,21 @@ const TempInput = (props) => {
     setNumericalInput,
   } = props;
 
-
   //this should take the drop down value clicked on and store it in state
   const handleDropDownChange = (e) => {
-      e.preventDefault();
-      setdropDownTemp(e.target.value);
+    e.preventDefault();
+    setdropDownTemp(e.target.value);
   };
 
   const handleNumericalSubmit = (x, y) => {
     //here we need to invoke a function that will use the values
     // that have been updated, so we'll invoke the calcTemp function here
-    if(numericalInput === null) {
-      console.log("no user input")
+    if (numericalInput === null) {
+      console.log("no user input");
     }
     calculateTemp(numericalInput, dropDownTemp);
   };
 
- 
   //takes the value and sets state
   const numericalChange = (event) => {
     event.preventDefault();
@@ -42,21 +40,20 @@ const TempInput = (props) => {
   return (
     <div>
       <form id="tempCalc" onSubmit={handleDropDownChange}>
-        <label>Degrees</label><br />
-        <input type="number" className="temp" onChange={numericalChange} /><br />
+        <label>Degrees</label>
+        <br />
+        <input type="number" className="temp" onChange={numericalChange} />
+        <br />
 
-        <DropDown 
-        units={units}
-        handleDropDownChange={handleDropDownChange}
-        />
+        <DropDown units={units} handleDropDownChange={handleDropDownChange} />
 
         <button
           type="submit"
           className="button"
           onClick={(e) => {
-              e.preventDefault();
-              handleNumericalSubmit(numericalInput);
-            }}
+            e.preventDefault();
+            handleNumericalSubmit(numericalInput);
+          }}
         >
           Convert
         </button>
