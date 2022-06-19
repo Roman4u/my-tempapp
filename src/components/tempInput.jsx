@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import DropDown from "./DropDown";
+import { Alert, AlertTitle } from "@mui/material"
 
+import DropDown from "./DropDown";
 import "./tempapp.css";
 import { celcius, fahrenheit } from "./App";
 
 const TempInput = (props) => {
-  const [units, setUnits] = useState("");
+  const [units, setUnits] = useState('');
+  const [error, setError] = useState(false);
 
   const {
     dropDownTemp,
@@ -25,10 +27,11 @@ const TempInput = (props) => {
   const handleNumericalSubmit = (x, y) => {
     //here we need to invoke a function that will use the values
     // that have been updated, so we'll invoke the calcTemp function here
-    if (numericalInput === null) {
-      console.log("no user input");
+    if(numericalInput === null) {
+      setError(true);
+    }else{
+      calculateTemp(numericalInput, dropDownTemp);
     }
-    calculateTemp(numericalInput, dropDownTemp);
   };
 
   //takes the value and sets state
@@ -58,9 +61,13 @@ const TempInput = (props) => {
           Convert
         </button>
         <br />
-        <span id="result-container ui container">
+        { error ? 
+          <Alert variant="filled" severity="error">
+            <AlertTitle>Error</AlertTitle>No Degree input</Alert> 
+          : <span id="result-container ui container"> <h3>{convertedTemp}</h3> </span>}
+        {/* <span id="result-container ui container">
           <h3>{convertedTemp}</h3>
-        </span>
+        </span> */}
       </form>
     </div>
   );
