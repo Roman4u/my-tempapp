@@ -18,6 +18,8 @@ const TempInput = (props) => {
     setNumericalInput,
   } = props;
 
+  const errorMessage = "No input! Please input a degree and select a unit."
+
   //this should take the drop down value clicked on and store it in state
   const handleDropDownChange = (e) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ const TempInput = (props) => {
   const handleNumericalSubmit = (x, y) => {
     //here we need to invoke a function that will use the values
     // that have been updated, so we'll invoke the calcTemp function here
-    if(numericalInput === null) {
+    if(numericalInput === null || dropDownTemp === null) {
       setError(true);
     }else{
       calculateTemp(numericalInput, dropDownTemp);
@@ -61,14 +63,15 @@ const TempInput = (props) => {
           Convert
         </button>
         <br />
-        { error ? 
-          <Alert variant="filled" severity="error">
-            <AlertTitle>Error</AlertTitle>No Degree input</Alert> 
-          : <span id="result-container ui container"> <h3>{convertedTemp}</h3> </span>}
-        {/* <span id="result-container ui container">
-          <h3>{convertedTemp}</h3>
-        </span> */}
       </form>
+
+      <div>
+          { error ? 
+            <Alert variant="filled" severity="error">
+              <AlertTitle>Error</AlertTitle>
+              {errorMessage}</Alert> 
+            : <span id="result-container ui container"> <h3>{convertedTemp}</h3> </span>}
+      </div>
     </div>
   );
 };
