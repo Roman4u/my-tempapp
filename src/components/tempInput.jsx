@@ -18,7 +18,7 @@ const TempInput = (props) => {
     setNumericalInput,
   } = props;
 
-  const errorMessage = "No input! Please input a degree and select a unit."
+  const errorMessage = `No input! Press "refresh" and input a degree and select a unit.`
 
   //this function will take the drop down value clicked on and store it in state
   const handleDropDownChange = (e) => {
