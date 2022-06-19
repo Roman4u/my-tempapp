@@ -40,7 +40,7 @@ const App = () => {
 
   return (
     <div className="wrapper">
-      <div className="ui segment">
+      <div className="container">
         <div className="header">
         <h1>Temperature Converter</h1>
           <TempInput
@@ -53,8 +53,10 @@ const App = () => {
             // updateParentState={updateParentState}
             calculateTemp={calculateTemp}
           />
+          <div style={{display: 'flex'}}>
+           <button className="refresh-button" onClick={() => {return window.location.reload(false)}} style={{marginLeft: 'auto'}}>refresh</button>
+           </div>
         </div>
-        <button className="refresh-button" onClick={() => {return window.location.reload(false)}}>refresh</button>
       </div>
     </div>
   );

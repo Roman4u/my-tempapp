@@ -66,15 +66,15 @@ const TempInput = (props) => {
           Convert
         </button>
         <br />
-      </form>
 
-      <div>
           { error ? 
             <Alert variant="filled" severity="error">
               <AlertTitle>Error</AlertTitle>
               {errorMessage}</Alert> 
             : <span id="result-container ui container"> <h3>{convertedTemp}</h3> </span>}
-      </div>
+    
+      </form>
+
     </div>
   );
 };
