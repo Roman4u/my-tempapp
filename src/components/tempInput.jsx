@@ -8,6 +8,7 @@ import { celcius, fahrenheit } from "./App";
 const TempInput = (props) => {
   const [units, setUnits] = useState('');
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const {
     dropDownTemp,
@@ -18,8 +19,6 @@ const TempInput = (props) => {
     setNumericalInput,
   } = props;
 
-  const errorMessage = `No input! Press "refresh" and input a degree and select a unit.`
-
   //this function will take the drop down value clicked on and store it in state
   const handleDropDownChange = (e) => {
     e.preventDefault();
@@ -29,8 +28,12 @@ const TempInput = (props) => {
   //this function will handle errors by checking if both values in state have been updated
   //then, it will pass them to the calculateTemp function
   const handleNumericalSubmit = (x, y) => {
-    if(numericalInput === null || dropDownTemp === null) {
+   if(numericalInput === null) {
       setError(true);
+      setErrorMessage(`No input! Press "refresh" and input a degree`);
+    }else if(dropDownTemp === null){
+      setError(true)
+      setErrorMessage(`No unit selected! Press "refresh" and select a unit.`)
     }else{
       calculateTemp(numericalInput, dropDownTemp);
     }
