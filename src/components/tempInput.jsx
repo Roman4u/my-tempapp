@@ -11,7 +11,6 @@ const TempInput = (props) => {
     dropDownTemp,
     setdropDownTemp,
     calculateTemp,
-    updateParentState,
     convertedTemp,
     numericalInput,
     setNumericalInput,
@@ -27,6 +26,9 @@ const TempInput = (props) => {
   const handleNumericalSubmit = (x, y) => {
     //here we need to invoke a function that will use the values
     // that have been updated, so we'll invoke the calcTemp function here
+    if(numericalInput === null) {
+      console.log("no user input")
+    }
     calculateTemp(numericalInput, dropDownTemp);
   };
 
