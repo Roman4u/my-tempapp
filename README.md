@@ -1,20 +1,19 @@
 # <u align="center">Temperature Converter</u>
 
 <p align="center"> 
-<a href=""><img src="./src/images/image1.png" alt="tempapp" height="200px" margin="auto" > </a>
+<a href=""><img src="./src/images/image1.png" alt="tempapp" height="250px" margin="auto" > </a>
 </p>
 
 ## <u>About the Project</u>
  A simple, user-friendly, SPA temperature converter. Currently, users can convert between celsius and fahrenheit, and visa versa. Furthermore, users can refresh settings with ease by simply pressing the refresh button; they can also toggle between dark and light mode for a more pleasurable viewing experience.
 
 ### Tech Stack:
-
 - React.js
 - React Switch
 - Node.js
 - Material UI
 
-    - <u>Framework: React.js</u>
+    - **Framework: React.js**
         - First, the app requires various data from the user such as a numerical input and a unit of temperature.
         - Next, depending on what the user inputs, this data needs to be stored in a place where the entire app can access it, and update it accordingly, so it can be used by other parts of the code; e.g. converting a numerical unit from celsius to fahrenheit.  
         - Thus, due to the complexity of how data needs to be organzied and managed efficiently, I decided to use React.js because of its component based structure and state management functionality; i.e. components that manage their own state as well pass data throughout the app.
@@ -26,7 +25,7 @@
                             * **DropDown**: Child component of TempInput. It handles the users selected unit(e.g. celsius or fahrenheit), and passes it to TempInput.
                         * **ToggleSwitch**: Child component of App. It handles the functionality of toggling between light and dark mode.  
 
-    - <u>UI Design: React-Switch & Material UI</u> 
+    - **UI Design: React-Switch & Material UI** 
         - The simplicity of the app required a minimalistic UI, so I decided to incorporate libraries that would help me to achieve this. 
             * **React-Switch**: used to create the toggle button for toggling between light and dark mode.
             * **Material UI**: used to display clean, precise, user-friendly error messages.
@@ -58,8 +57,7 @@
 
  ## <u>Usage</u>  
 
- - **First, begin with the degree and unit you wish to convert:** 
-
+- **First, begin with the degree and unit you wish to convert:** 
 1. In the top input field, enter a numerical value for the degree
 2. In the second, select the unit you wish to have converted
 3. Press the ```convert``` button
@@ -77,6 +75,7 @@
 ## <u>Future Features</u>
 - Incorporate more units of measurement
 - Create a logo and icon for the app
+- Incoporate testing
 
 ## <u>Contribute</u>
 
