@@ -22,10 +22,10 @@ You can access the app on GitHub pages: [My Temperature App](https://Roman4u.git
 
             * **Component structure**: 
                 * The components have been appropriatedly separated based on their functionality: 
-                    * **App**: The root/parent component. It handles the state values that need to be updated and accessed throughout the app. 
+                    * **App**: The root/parent component. It handles the state values that need to be updated and accessed throughout the app; specifically, temperature conversion functionality and theme toggling. 
                         * **TempInput**: Child component of App. It handles the user input, specifically the numerical unit, and passes it to App.
                             * **DropDown**: Child component of TempInput. It handles the users selected unit(e.g. celsius or fahrenheit), and passes it to TempInput.
-                        * **ToggleSwitch**: Child component of App. It handles the functionality of toggling between light and dark mode.  
+                        * **ToggleSwitch**: Child component of App. It creates the toggle button for switching between light and dark mode.  
 
     - **UI Design: React-Switch & Material UI** 
         - The simplicity of the app required a minimalistic UI, so I decided to incorporate libraries that would help me to achieve this. 
