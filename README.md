@@ -4,6 +4,8 @@
 <a href=""><img src="./src/images/image1.png" alt="tempapp" height="250px" margin="auto" > </a>
 </p>
 
+You can access the app on GitHub pages: [My Temperature App](https://Roman4u.github.io/my-tempapp).
+
 ## <u>About the Project</u>
  A simple, user-friendly, SPA temperature converter. Currently, users can convert between celsius and fahrenheit, and visa versa. Furthermore, users can refresh settings with ease by simply pressing the refresh button; they can also toggle between dark and light mode for a more pleasurable viewing experience.
 
