@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./tempapp.css";
-import { celcius, fahrenheit } from "./App";
 
 const DropDown = (props) => {
     const {units, handleDropDownChange} = props;

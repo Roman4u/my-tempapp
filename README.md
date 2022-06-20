@@ -1,69 +1,81 @@
-# <u>Temperature Converter</u>
+# <u align="center">Temperature Converter</u>
 
+<p align="center"> 
+<a href=""><img src="./src/images/image1.png" alt="tempapp" height="150px" margin="auto" > </a>
+</p>
 
-## Available Scripts
+## <u>About the Project</u>
+ A simple, user-friendly, SPA temperature converter. Currently, users can convert between celsius and fahrenheit, and visa versa. Furthermore, users can refresh settings with ease by simply pressing the refresh button; they can also toggle between dark and light mode for a more pleasurable viewing experience.
 
-In the project directory, you can run:
+### Tech Stack:
+    - React.js
+    - React Switch
+    - Node.js
+    - Material UI
 
-### `npm start`
+    - Framework: React.js
+        - First, the app requires various data from the user such as a numerical input and a unit of temperature.
+        - Next, depending on what the user inputs, this data needs to be stored in a place where the entire app can access it, and update it accordingly, so it can be used by other parts of the code; e.g. converting a numerical unit from celsius to fahrenheit.  
+        - Thus, due to the complexity of how data needs to be organzied and managed efficiently, I decided to use React.js because it is component based; components that manage their own state as well pass data throughout the app.
+            * Component structure: 
+                * The components have been appropriatedly separated based on their functionality: 
+                    * App: The root/parent component. It handles the state values that need to be updated and accessed throughout the app. 
+                        * TempInput: Child component of App. It handles the user input, specifically the numerical unit, and passes it to App.
+                            * DropDown: Child component of TempInput. It handles the users selected unit(e.g. celsius or fahrenheit), and passes it to TempInput.
+                        * ToggleSwitch: Child component of App. It handles the functionality of toggling between light and dark mode.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    - UI Design: React-Switch & Material UI 
+        - The simplicity of the app required a minimalistic UI, so I decided to incorporate libraries that would help me to achieve this. 
+            * React-Switch: used to create the toggle button for toggling between light and dark mode.
+            * Material UI: used to display clean, precise, user-friendly error messages.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## <u>Getting Started</u>
 
-### `npm test`
+#### Pre-requisites:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+ - NPM: 
+```npm install npm@latest```
 
-### `npm run build`
+#### Installation:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Clone the repository:
+```git clone https://github.com/Roman4u/my-tempapp```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Install NPM packages:
+```npm install```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Build:
 
-### `npm run eject`
+- Run the build command
+```npm run build```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Deployment:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Deploy to GitHub pages
+```npm run deploy```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ ## <u>Usage</u>  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ - **First, begin with the degree and unit you wish to convert:** 
+ 1. In the top input field, enter a numerical value for the degree
+ 2. In the second, select the unit you wish to have converted
+ 3. Press the ```convert``` button
+ 4. Press the ```refresh``` button to make another conversion 
 
-## Learn More
+ - **Error Handling**
+    - In the case that either a degree is not input or a unit is not selected, an error message will instruct you to follow those steps.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ - **Page Refresh**
+    - To assist the user in having an easy experience, the refresh button clears the page and resets the values.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Toggle between light or dark mode**
+    - Clicking this switch button will change the UI from dark to light mode, and visa versa
 
-### Code Splitting
+## <u>Future Features</u>
+    - Incorporate more units of measurement
+    - Create a logo and icon for the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## <u>Contribute</u>
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Option 1. Fork the repo and create a pull request.
+    Option 2. Open an issue with the tag enhancement

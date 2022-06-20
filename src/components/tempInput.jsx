@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Alert, AlertTitle } from "@mui/material"
 
 import DropDown from "./DropDown";
 import "./tempapp.css";
-import { celcius, fahrenheit } from "./App";
+
 
 const TempInput = (props) => {
   const [units, setUnits] = useState('');

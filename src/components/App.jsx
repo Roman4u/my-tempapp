@@ -1,5 +1,4 @@
 import React, { useState, createContext } from "react";
-import ReactSwitch from "react-switch";
 
 import TempInput from "./TempInput";
 import RefreshButton from "./RefreshButton";
@@ -12,7 +11,6 @@ export const celcius = "Celcius";
 const App = () => {
   const [dropDownTemp, setdropDownTemp] = useState(null);
   const [convertedTemp, setConvertedTemp] = useState(null);
-  const [currentWeather, setCurrentWeather] = useState("cold");
   const [numericalInput, setNumericalInput] = useState(null);
   const [ theme, setTheme ] = useState("light");
   

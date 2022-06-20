@@ -86,16 +86,16 @@ select {
   }
 
   #light .header {
-      background-color:  rgb(246, 235, 235);;
+      background-color:  rgb(246, 235, 235);
   }
 
 
   #dark {
-      background-color:  rgb(236, 111, 111);;
+      background-color:  rgb(236, 111, 111);
   }
 
   #dark .header {
-      background-color:  rgb(248, 182, 182);;
+      background-color:  rgb(248, 182, 182);
   }
 
   #dark .switch-label {
