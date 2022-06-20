@@ -17,8 +17,8 @@ You can access the app on GitHub pages: [My Temperature App](https://Roman4u.git
 
     - **Framework: React.js**
         - First, the app requires various data from the user such as a numerical input and a unit of temperature.
-        - Next, depending on what the user inputs, this data needs to be stored in a place where the entire app can access it, and update it accordingly, so it can be used by other parts of the code; e.g. converting a numerical unit from celsius to fahrenheit.  
-        - Thus, due to the complexity of how data needs to be organzied and managed efficiently, I decided to use React.js because of its component based structure and state management functionality; i.e. components that manage their own state as well pass data throughout the app.
+        - Next, depending on what the user inputs, the data needs to be stored in a way where the entire app can access it and update it accordingly. This is important because the data will be used by other components; e.g. converting a numerical unit from celsius to fahrenheit will be the job of one component while retrieving said data will be work of another component. This type of organized structure based on component functionality will also allow me to track errors more efficiently.   
+        - Thus, due to the complexity of how data needs to be organzied and managed efficiently, I decided to use React.js because of its component based structure and state management functionality; i.e. components that manage their own state as well as pass data throughout the app.
 
             * **Component structure**: 
                 * The components have been appropriatedly separated based on their functionality: 
