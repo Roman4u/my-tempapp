@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/my-tempapp/static/css/main.7f2c18f1.css",
+    "main.js": "/my-tempapp/static/js/main.9885dcfa.js",
+    "index.html": "/my-tempapp/index.html",
+    "main.7f2c18f1.css.map": "/my-tempapp/static/css/main.7f2c18f1.css.map",
+    "main.9885dcfa.js.map": "/my-tempapp/static/js/main.9885dcfa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7f2c18f1.css",
+    "static/js/main.9885dcfa.js"
+  ]
+}
